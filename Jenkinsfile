@@ -45,12 +45,15 @@ pipeline{
                 message "Chose where to ENV to deploy"
                 ok "User chose it's input, DONE"
                 parameters {
-                    choice(name:'ENV', choices: ['DEV', 'Testing', 'Production'], description:'')
+                    choice(name:'ENV_one', choices: ['DEV', 'Testing', 'Production'], description:'')
+                    // When you want to deploy to multiple env, you can duplicate above parameter and deployment will be pushed to 2nd env too.
+                    choice(name:'ENV_two', choices: ['DEV', 'Testing', 'Production'], description:'')
                 }
             }            
             steps {
                 script {
-                    echo "User has chosen, ${ENV} Environment for deployment"
+                    echo "User has chosen, ${ENV_one} Environment for deployment"
+                    echo "User has chosen, ${ENV_two} Environment for deployment"
                     gv.beforProd()
                 }
             }
