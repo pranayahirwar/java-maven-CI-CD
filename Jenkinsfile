@@ -50,6 +50,7 @@ pipeline{
             }            
             steps {
                 script {
+                    echo "User has chosen, ${ENV} Environment for deployment"
                     gv.beforProd()
                 }
             }
