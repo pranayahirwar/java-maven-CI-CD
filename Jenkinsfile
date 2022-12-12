@@ -41,6 +41,13 @@ pipeline{
         }
 
         stage('Final_Recheck') {
+            input {
+                message "Chose where to ENV to deploy"
+                ok "User chose it's input, DONE"
+                parameters {
+                    choice(name:'ENV', choices: ['DEV', 'Testing', 'Production'], description:'')
+                }
+            }            
             steps {
                 script {
                     gv.beforProd()
