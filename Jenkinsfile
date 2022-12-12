@@ -8,7 +8,7 @@ pipeline{
         //* Credentails Plugin
         //* Credentials Buinding Plugin
 
-        SERVER_CREDENTIAL = credentails('our-server-cred')
+        SERVER_CREDENTIAL = credentials('our-server-cred')
     }
 
     parameters {
