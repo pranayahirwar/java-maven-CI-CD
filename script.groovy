@@ -8,7 +8,7 @@ def  testStep() {
 
 def beforProd() {
     echo "Final rechecking before Production"
-    echo "You have chosen ${params.VERSION} during build"
+    // echo "You have chosen ${params.VERSION} during build"
 }
 
 
