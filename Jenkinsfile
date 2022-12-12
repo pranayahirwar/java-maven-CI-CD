@@ -1,4 +1,7 @@
 #!/usr/bin/env groovy
+// Here we will use grovvy script from which we are going to call function inside our stage. because these stages can contain too many code init. To do this first we need to define init stage.
+// One thing to keep in mind is that, the parameter which are defind in jenkins files are also availabe in script.groovy
+
 pipeline{
     agent any
     parameters {
@@ -7,10 +10,18 @@ pipeline{
     }
 
     stages {
+        stage('init') {
+            steps {
+                script {
+                    gv = load 'script.groovy' 
+                }
+            }
+        }
+
         stage('Developing') {
             steps {
                 script {
-                    echo "Developing build, going to test next"
+                    gv.devStep()
                 }
             }
         }
@@ -22,15 +33,17 @@ pipeline{
                     }
                 }            
             steps {
-                    echo 'Doing testing soon, results are going to come!!!'
+                script {
+                    gv.testStep()
+                }
+                    
             }
         }
 
         stage('Final_Recheck') {
             steps {
                 script {
-                    echo 'Doing Rechecks soon launching in Production env!!!'
-                    echo "You have chosen ${params.VERSION} during build"
+                    gv.beforeProd()
                 }
             }
         }
