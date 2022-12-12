@@ -37,7 +37,7 @@ pipeline{
                 // When expression used for condition on which this steps are going to run.
                 when {
                     expression {
-                        params.ExecuteTest == true or //params.ExecuteTest
+                        params.ExecuteTest == true // or params.ExecuteTest
                     }
                 }
                 script {
