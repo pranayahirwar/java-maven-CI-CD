@@ -16,16 +16,13 @@ pipeline{
         }
 
         stage('Testing') {
-            steps {
-                when {
-                    expression {
-                        params.ExecuteTest == true
+            when {
+                expression {
+                    params.ExecuteTest == true
                     }
-                }
-                script {
+                }            
+            steps {
                     echo 'Doing testing soon, results are going to come!!!'
-            
-                }
             }
         }
 
