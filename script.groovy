@@ -1,4 +1,4 @@
-def buildApp() {
+def buildingApp() {
     echo 'Building Maven Package ...'
     // sh "mvn package"
 }
