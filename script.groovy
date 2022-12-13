@@ -9,7 +9,7 @@ def  dockerBuild() {
     // withCredentials([usernamePassword(credentialsId: 'dockerHubCred', usernameVariable:'USER', passwordVariable:'PSD')]){
     //     sh "echo $PSD | docker login -u $USER --password-stdin "
     //     sh "docker push trymi0/tryout:jam-100.1"
-    }
+    // }
 }
 
 def beforProd() {
