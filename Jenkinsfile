@@ -22,7 +22,9 @@ pipeline{
         stage('Building Jar'){
             steps {
                 script {
-                    buildApp()
+                    // buildApp()
+                    gv.buildApp()
+                    
                 }
             }
         }
@@ -30,7 +32,8 @@ pipeline{
         stage('Building Docker Image'){
             steps {
                 script {
-                    dockerBuild()
+                    // dockerBuild()
+                    gv.dockerBuild()
                 }
             }
         }

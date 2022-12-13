@@ -1,14 +1,14 @@
 def buildApp() {
     echo 'Building Maven Package ...'
-    sh "mvn package"
+    // sh "mvn package"
 }
 
 def  dockerBuild() {
     echo "Building docker image..."
-    sh "docker build -t trymi0/tryout:jam-100.1 ."
-    withCredentials([usernamePassword(credentialsId: 'dockerHubCred', usernameVariable:'USER', passwordVariable:'PSD')]){
-        sh "echo $PSD | docker login -u $USER --password-stdin "
-        sh "docker push trymi0/tryout:jam-100.1"
+    // sh "docker build -t trymi0/tryout:jam-100.1 ."
+    // withCredentials([usernamePassword(credentialsId: 'dockerHubCred', usernameVariable:'USER', passwordVariable:'PSD')]){
+    //     sh "echo $PSD | docker login -u $USER --password-stdin "
+    //     sh "docker push trymi0/tryout:jam-100.1"
     }
 }
 
