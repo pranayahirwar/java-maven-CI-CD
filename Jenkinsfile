@@ -33,8 +33,15 @@ pipeline{
         stage('Building Docker Image'){
             steps {
                 script {
-                    dockerBuild()
+                    // fucntion call from external groovy
                     // gv.dockerBuild()
+
+                    //How to call function without any parameter
+                    // dockerBuild()
+
+                    //function call using parameter from jenkins shared lib
+                    dockerBuild 'trymi0/tryout:jam-101.1'
+                    
                 }
             }
         }
