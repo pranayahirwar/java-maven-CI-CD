@@ -3,18 +3,18 @@
 // One thing to keep in mind is that, the parameter which are defind in jenkins files are also availabe in script.groovy
 
 // User below syntax when you have defined library across globaly using jenkins applicaion "GLOBAL SHARED PIPELINE"
-// @Library('shared-pipeline')
+@Library('shared-pipeline')
 //for using versioning
 // @Library('shared-pipeline@2.0')
 
 // Syntax to declare pipeline in jenkinsfile itself
 
-library identifier: 'shared-pipeline@master', retriever: modernSCM(
-    [$class: 'GitSCMSource',
-    remote: 'https://github.com/pranayahirwar/Jenkin-shared-library.git'
-    // credentialsId: 'name which are saved in jenkins application'
-    ]
-)
+// library identifier: 'shared-pipeline@master', retriever: modernSCM(
+//     [$class: 'GitSCMSource',
+//     remote: 'https://github.com/pranayahirwar/Jenkin-shared-library.git'
+//     // credentialsId: 'name which are saved in jenkins application'
+//     ]
+// )
 
 def gv
 
