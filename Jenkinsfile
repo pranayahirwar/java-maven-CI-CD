@@ -10,7 +10,7 @@
 // Syntax to declare pipeline in jenkinsfile itself
 
 library identifier: 'shared-pipeline@master', retriever: modernSCM(
-    [$class: 'GitHubSCMSource',
+    [$class: 'GitSCMSource',
     remote: 'https://github.com/pranayahirwar/Jenkin-shared-library.git'
     // credentialsId: 'name which are saved in jenkins application'
     ]
