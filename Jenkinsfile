@@ -51,5 +51,23 @@ pipeline {
             }
         }
 
+        stage('Commit') {
+            steps {
+                script {
+                    sh 'git config user.email "jenkin@example.com"'
+                    sh 'git config user.name "ci-cd_Builder" '
+                    sh "git status"
+                    sh "git add ."
+                    sh "git commit -m 'This update is done by JENKINS'"
+
+                    withCredentials([usernamePassword(credentialsId: 'gitCred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/pranayahirwar/java-maven-CI-CD.git"
+                        sh "git push origin HEAD:incrementalBuildBranch"
+                    }
+
+                }
+            }
+        }
+
     }
 }
