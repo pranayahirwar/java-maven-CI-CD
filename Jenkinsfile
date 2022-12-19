@@ -31,12 +31,13 @@ pipeline {
             steps {
                 script {
                     echo "building the docker image..."
-                    withCredentials([usernamePassword(credentialsId: 'dockerHubCred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh "docker build -t trymi0/jenkins_ci-cd-repo:${IMAGE_NAME} ."
+                    sh "docker build -t trymi0/jenkins_ci-cd-repo:${IMAGE_NAME} ."
+//                     withCredentials([usernamePassword(credentialsId: 'dockerHubCred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+//                         sh "docker build -t trymi0/jenkins_ci-cd-repo:${IMAGE_NAME} ."
 //                         sh "echo $PASS | docker login -u $USER --password-stdin"
 //                         sh "docker push trymi0/tryout:${IMAGE_NAME}"
 
-                    }
+//                     }
 //                     echo "Build is done and deployed to docker too. Current Build Image $IMAGE_NAME"
                 }
             }
