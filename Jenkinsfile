@@ -3,7 +3,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        maven 'ourMaven_3.8.6'
     }
     stages {
         stage('increment version') {
